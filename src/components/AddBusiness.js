@@ -29,7 +29,7 @@ class AddBusiness extends Component {
         const newBusiness = { ...this.state }
         newBusiness.id = this.props.newBusiness + 1
         this.props.addBusiness(newBusiness)
-        this.props.history.push("/")
+        this.props.history.push("/listing")
     }
 
 

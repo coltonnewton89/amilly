@@ -12,6 +12,7 @@ class Navigation extends Component  {
     // switchClick = () => {
     //     this.setState({login: !this.state.login})
     // }
+    
 
     render(){
     return (
@@ -29,8 +30,12 @@ class Navigation extends Component  {
                         <Link onClick={this.guestClick} to="/listing">Listing</Link>
                     </li>
                     <li className="nav-list-item">
-                    <Link to="/Login">{this.props.user.username ? 'logout' : 'login'}</Link>
+                    <Link to="/Login">{this.props.user.username ? null : 'login'}
+                        </Link>
+
                     </li>
+
+                    {this.props.user.username ? (<button onClick={(props)=>{this.props.user.username = false}}>Log out</button>) : (null)}
 
 
                     {this.props.user.username ? (<li className="nav-list-item">
