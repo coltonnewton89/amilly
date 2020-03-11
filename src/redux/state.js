@@ -1,7 +1,7 @@
 export default {
-    user: [{
+    user: {
       username: false
-    }],
+    },
     business: [
       {
         id: 1,

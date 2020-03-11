@@ -29,6 +29,9 @@ class Navigation extends Component  {
                         <Link onClick={this.guestClick} to="/listing">Listing</Link>
                     </li>
                     <li className="nav-list-item">
+                        <Link onClick={this.switchClick} to="/add">Add</Link>
+                    </li>
+                    <li className="nav-list-item">
                     <Link onClick={this.switchClick} to="/Login">{this.state.login ? 'logout' : 'login'}</Link>
                     </li>
                 </ul>
