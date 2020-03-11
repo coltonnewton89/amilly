@@ -6,12 +6,12 @@ import { Link } from 'react-router-dom'
 import SnackbarContent from '@material-ui/core/SnackbarContent';
 
 class Navigation extends Component  {
-    state = {
-        login: false,
-    }
-    switchClick = () => {
-        this.setState({login: !this.state.login})
-    }
+    // state = {
+    //     login: false,
+    // }
+    // switchClick = () => {
+    //     this.setState({login: !this.state.login})
+    // }
 
     render(){
     return (
@@ -29,12 +29,19 @@ class Navigation extends Component  {
                         <Link onClick={this.guestClick} to="/listing">Listing</Link>
                     </li>
                     <li className="nav-list-item">
-                    <Link onClick={this.switchClick} to="/Login">{this.state.login ? 'logout' : 'login'}</Link>
+                    <Link to="/Login">{this.props.user.username ? 'logout' : 'login'}</Link>
                     </li>
+
+
+                    {this.props.user.username ? (<li className="nav-list-item">
+                    <Link onClick={this.guestClick} to="/AddBusiness">Add Business</Link>
+                    </li>):(null)}
+                    
                 </ul>
             </Toolbar>
         </AppBar>
-    {this.state.login ? <SnackbarContent  message="Logged out as: username"  /> : 
+        {/*  "username" in message is hard coded and needs to be pulled from a value in login.js*/}
+    {this.props.user.username ? <SnackbarContent  message="Logged out as: username"  /> : 
     <SnackbarContent  message="Logged in as: username"  />}
         
     

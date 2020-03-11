@@ -4,12 +4,13 @@ import cookie from 'cookie'
 import Listing from './containers/Listing'
 import Login from './containers/Login'
 import Business from './containers/Business';
+import AddBusiness from './components/AddBusiness'
 
 
 
 const checkAuth = () => {
     const cookies = cookie.parse(document.cookie)
-    return cookies['loggedIn']
+    return cookies['loggedIn'] ? true : false
 }
 
 const ProtectedRoute = ({component: Component, ...rest}) => {
@@ -31,6 +32,7 @@ const Router = () => {
             <Route path="/listing" component={Listing}/>
             <Route path='/login' component={Login} />
             <ProtectedRoute path= '/business/:id' component={Business}/>
+            <ProtectedRoute path= '/AddBusiness' component={AddBusiness}/>
         </Switch>
     );
 };

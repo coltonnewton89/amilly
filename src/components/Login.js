@@ -42,6 +42,7 @@ class App extends Component {
               type="password"
             />
             <Button
+              onClick={this.login}
               type="submit"
               className="login-button"
               variant="contained"

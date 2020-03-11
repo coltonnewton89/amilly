@@ -31,10 +31,13 @@ const Listing = props => {
                     <TableBody>
                         {props.business.map((business, idx) => (
                         <TableRow key={business.id}>
-                            <TableCell>{business.name}<Link to={`/details/${business.id.name}`}>{business["name"]}</Link></TableCell>
-                            <TableCell>crap{business["address"]}</TableCell>
-                            <TableCell>jill{business["description"]}</TableCell>
-                            <TableCell>{business["hours"]}</TableCell>
+                            {/* link to business.id.name needs to change to business.Name*/}
+                            {/*set up routes details/whatver business. Then set 
+                            up those component files*/}
+                            <TableCell><Link to={`/business/${business.id}`}>{business.Name}</Link></TableCell>
+                        <TableCell>{business.Description}</TableCell>
+                            <TableCell>{business.Hours}</TableCell>
+                            <TableCell>{business.Address}</TableCell>
                             {document.cookie === "loggedIn=true" ? (
                                     <TableCell>
                                         <DeleteIcon
