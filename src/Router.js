@@ -4,7 +4,7 @@ import cookie from 'cookie'
 import Listing from './containers/Listing'
 import Login from './containers/Login'
 import Business from './containers/Business';
-import AddBusiness from './components/AddBusiness'
+import AddBusiness from './containers/AddBusiness'
 
 
 

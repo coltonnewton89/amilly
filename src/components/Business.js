@@ -4,7 +4,7 @@ import Map from './Map'
 
 const Business = (props) => {
     const id = props.match.params.id
-    const business = props.business.find(c => c.id == id)
+    const business = props.business.find(c => c.id === id)
 
     return (
         <Container maxWidth="sm" className="business-container">
