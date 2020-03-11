@@ -29,7 +29,7 @@ class Navigation extends Component  {
                         <Link onClick={this.guestClick} to="/listing">Listing</Link>
                     </li>
                     <li className="nav-list-item">
-                    <Link to="/Login">{this.props.user.username ? 'logout' : 'login'}</Link>
+                    <Link to="/Login">{this.props.user.username ? null : 'login'}</Link>
                     </li>
 
 
