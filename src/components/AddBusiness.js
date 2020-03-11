@@ -33,25 +33,37 @@ class AddBusiness extends Component {
     }
 
 
+    componentDidUpdate = (prevProps, prevState) => {
+        if (prevState.open !== this.state.open) {
+            this.setState({
+                name: '',
+                description: '',
+                address: '',
+                hours: ''
+            })
+        }
+    }
+
     render() {
         return (
             <Fragment>
                 <div style={{ textAlign: 'center' }}>
+                    <h1>Add Your Business Here!</h1>
                     <Button
                         variant="contained"
                         className="add-business"
                         onClick={this.toggleDialog}
                     >
-                        Add Business
+                   New Business
                     </Button>
                 </div>
                 <div>
                     <Dialog open={this.state.open} onClose={this.toggleDialog} >
-                        <DialogTitle>Add New Business Listing</DialogTitle>
+                      <DialogTitle>Add New Business</DialogTitle>
                         <DialogContent>
                             <form 
                                 onSubmit={this.handleSubmit}
-                                style={{ display: 'flex', flexDirection: 'column', width: '350px' }}>
+                                style={{ display: 'flex', flexDirection: 'column', width: '300px' }}>
                                 <TextField 
                                     id="name" 
                                     placeholder="Name" 
@@ -61,13 +73,7 @@ class AddBusiness extends Component {
                                 <TextField 
                                     id="description" 
                                     placeholder="Description" 
-                                    value={this.state.description}
-                                    onChange={this.handleTextChange} 
-                                    required /> 
-                                <TextField 
-                                    id="hours" 
-                                    placeholder="Hours of Operation" 
-                                    value={this.state.hours}
+                                    value={this.state.description} 
                                     onChange={this.handleTextChange} 
                                     required />
                                 <TextField 
@@ -75,7 +81,13 @@ class AddBusiness extends Component {
                                     placeholder="Address" 
                                     value={this.state.address} 
                                     onChange={this.handleTextChange} 
-                                    required />      
+                                    required />
+                                <TextField 
+                                    id="hours" 
+                                    placeholder="Hours" 
+                                    value={this.state.hours} 
+                                    onChange={this.handleTextChange} 
+                                    required />
                                 <br />
                                 <Button variant="contained" color="primary" type="submit">Submit</Button>
                             </form>

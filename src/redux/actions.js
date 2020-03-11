@@ -19,3 +19,9 @@ export const loginUser = (user) => {
     }
 }
 
+export const logoutUser = (username) => {
+    return {
+        type: 'LOGOUT',
+        value: username
+    }
+}
