@@ -46,57 +46,41 @@ class AddBusiness extends Component {
 
     render() {
         return (
-            <Fragment>
-                <div style={{ textAlign: 'center' }}>
-                    <h1>Add Your Business Here!</h1>
-                    <Button
-                        variant="contained"
-                        className="add-business"
-                        onClick={this.toggleDialog}
-                    >
-                   New Business
-                    </Button>
-                </div>
-                <div>
-                    <Dialog open={this.state.open} onClose={this.toggleDialog} >
-                      <DialogTitle>Add New Business</DialogTitle>
-                        <DialogContent>
-                            <form 
-                                onSubmit={this.handleSubmit}
-                                style={{ display: 'flex', flexDirection: 'column', width: '300px' }}>
-                                <TextField 
-                                    id="name" 
-                                    placeholder="Name" 
-                                    value={this.state.name} 
-                                    onChange={this.handleTextChange} 
-                                    required />
-                                <TextField 
-                                    id="description" 
-                                    placeholder="Description" 
-                                    value={this.state.description} 
-                                    onChange={this.handleTextChange} 
-                                    required />
-                                <TextField 
-                                    id="address" 
-                                    placeholder="Address" 
-                                    value={this.state.address} 
-                                    onChange={this.handleTextChange} 
-                                    required />
-                                <TextField 
-                                    id="hours" 
-                                    placeholder="Hours" 
-                                    value={this.state.hours} 
-                                    onChange={this.handleTextChange} 
-                                    required />
-                                <br />
-                                <Button variant="contained" color="primary" type="submit">Submit</Button>
-                            </form>
-                        </DialogContent>
-                    </Dialog>
-                </div>
-            </Fragment>
+            <div>
+            <form 
+                onSubmit={this.handleSubmit}
+                style={{ display: 'flex', flexDirection: 'column', width: '350px' }}>
+            <TextField 
+                id="name" 
+                placeholder="Name" 
+                value={this.state.name} 
+                onChange={this.handleTextChange} 
+                required />
+            <TextField 
+                id="address" 
+                placeholder="Address" 
+                value={this.state.address} 
+                onChange={this.handleTextChange}
+                required />
+            <TextField 
+                id="hours" 
+                placeholder="Hours (ex. 8AM - 9PM)" 
+                value={this.state.hours} 
+                onChange={this.handleTextChange} 
+                required />
+            <TextField 
+                id="description" 
+                placeholder="Description" 
+                value={this.state.description} 
+                onChange={this.handleTextChange} 
+                required />
+            <br />
+                <Button variant="contained" color="primary" type="submit">Add Listing</Button>
+            </form>
+        </div>
         )
     }
-}
+    }
+    
 
 export default AddBusiness
