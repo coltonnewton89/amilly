@@ -12,10 +12,16 @@ export const removeBusiness = (index) => {
     }
 }
 
-export const loginUser = (username) => {
+export const loginUser = (user) => {
     return {
         type: 'LOGIN',
-        value: username
+        value: user
     }
 }
 
+export const logoutUser = (username) => {
+    return {
+        type: 'LOGOUT',
+        value: username
+    }
+}

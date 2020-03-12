@@ -31,9 +31,6 @@ const Listing = props => {
                     <TableBody>
                         {props.business.map((business, idx) => (
                         <TableRow key={business.id}>
-                            {/* link to business.id.name needs to change to business.Name*/}
-                            {/*set up routes details/whatver business. Then set 
-                            up those component files*/}
                             <TableCell><Link to={`/business/${business.id}`}>{business.Name}</Link></TableCell>
                         <TableCell>{business.Description}</TableCell>
                             <TableCell>{business.Hours}</TableCell>
@@ -53,5 +50,7 @@ const Listing = props => {
 
     )
 };
+
+
 
 export default Listing;

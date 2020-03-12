@@ -29,62 +29,58 @@ class AddBusiness extends Component {
         const newBusiness = { ...this.state }
         newBusiness.id = this.props.newBusiness + 1
         this.props.addBusiness(newBusiness)
-        this.props.history.push("/")
+        this.props.history.push("/listing")
     }
 
+
+    componentDidUpdate = (prevProps, prevState) => {
+        if (prevState.open !== this.state.open) {
+            this.setState({
+                name: '',
+                description: '',
+                address: '',
+                hours: ''
+            })
+        }
+    }
 
     render() {
         return (
-            <Fragment>
-                <div style={{ textAlign: 'center' }}>
-                    <Button
-                        variant="contained"
-                        className="add-business"
-                        onClick={this.toggleDialog}
-                    >
-                        Add Business
-                    </Button>
-                </div>
-                <div>
-                    <Dialog open={this.state.open} onClose={this.toggleDialog} >
-                        <DialogTitle>Add New Business Listing</DialogTitle>
-                        <DialogContent>
-                            <form 
-                                onSubmit={this.handleSubmit}
-                                style={{ display: 'flex', flexDirection: 'column', width: '350px' }}>
-                                <TextField 
-                                    id="name" 
-                                    placeholder="Name" 
-                                    value={this.state.name} 
-                                    onChange={this.handleTextChange} 
-                                    required />
-                                <TextField 
-                                    id="description" 
-                                    placeholder="Description" 
-                                    value={this.state.description}
-                                    onChange={this.handleTextChange} 
-                                    required /> 
-                                <TextField 
-                                    id="hours" 
-                                    placeholder="Hours of Operation" 
-                                    value={this.state.hours}
-                                    onChange={this.handleTextChange} 
-                                    required />
-                                <TextField 
-                                    id="address" 
-                                    placeholder="Address" 
-                                    value={this.state.address} 
-                                    onChange={this.handleTextChange} 
-                                    required />      
-                                <br />
-                                <Button variant="contained" color="primary" type="submit">Submit</Button>
-                            </form>
-                        </DialogContent>
-                    </Dialog>
-                </div>
-            </Fragment>
+            <div>
+            <form 
+                onSubmit={this.handleSubmit}
+                style={{ display: 'flex', flexDirection: 'column', width: '350px' }}>
+            <TextField 
+                id="name" 
+                placeholder="Name" 
+                value={this.state.name} 
+                onChange={this.handleTextChange} 
+                required />
+            <TextField 
+                id="address" 
+                placeholder="Address" 
+                value={this.state.address} 
+                onChange={this.handleTextChange}
+                required />
+            <TextField 
+                id="hours" 
+                placeholder="Hours (ex. 8AM - 9PM)" 
+                value={this.state.hours} 
+                onChange={this.handleTextChange} 
+                required />
+            <TextField 
+                id="description" 
+                placeholder="Description" 
+                value={this.state.description} 
+                onChange={this.handleTextChange} 
+                required />
+            <br />
+                <Button variant="contained" color="primary" type="submit">Add Listing</Button>
+            </form>
+        </div>
         )
     }
-}
+    }
+    
 
 export default AddBusiness
