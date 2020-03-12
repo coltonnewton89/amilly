@@ -1,20 +1,15 @@
 import React from 'react'
 import { Container } from '@material-ui/core';
-<<<<<<< HEAD
 import GoogleMapReact from 'google-map-react';
 // import Map from './Map'
 
 const AnyReactComponent = ({ text }) => <div>{text}</div>
 
 
-=======
-import Map from './Map'
->>>>>>> d6a9c9b3c96ccbbc3b2cbbdd716216d1a902bfce
 
 const Business = (props) => {
     const id = props.match.params.id
     const business = props.business.find(c => c.id == id)
-<<<<<<< HEAD
 
     const defaultProps = {
         center: {
@@ -41,18 +36,6 @@ const Business = (props) => {
 
             </Container>
 
-=======
-
-    return (
-        <Container maxWidth="sm" className="business-container">
-            <div className="business-paper">
-                <h1>{business.Name}</h1>
-                <h3>{business.Address}</h3>
-                <h3>{business.Hours}</h3>
-                <p>{business.Description}</p>
-                <Map></Map>
-            </div>
->>>>>>> d6a9c9b3c96ccbbc3b2cbbdd716216d1a902bfce
         </Container>
     )
 }
