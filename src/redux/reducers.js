@@ -13,6 +13,10 @@ const user = (state = null, action) => {
                 user: null,
                 loggedIn: false,
             }
+        case 'LOGOUT':
+            return{
+                username: false
+            }
         default:
             return state
     }

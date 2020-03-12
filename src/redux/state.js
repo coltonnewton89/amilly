@@ -1,8 +1,12 @@
 export default {
     user: {
+<<<<<<< HEAD
       username: '',
       password: '',
       loggedIn: false
+=======
+      username: false
+>>>>>>> d6a9c9b3c96ccbbc3b2cbbdd716216d1a902bfce
     },
     business: [
       {
