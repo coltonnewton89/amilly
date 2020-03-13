@@ -1,10 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import {
     Button,
-    TextField,
-    Dialog,
-    DialogContent,
-    DialogTitle
+    TextField
 } from '@material-ui/core'
 
 
@@ -36,10 +33,10 @@ class AddBusiness extends Component {
     componentDidUpdate = (prevProps, prevState) => {
         if (prevState.open !== this.state.open) {
             this.setState({
-                name: '',
-                description: '',
-                address: '',
-                hours: ''
+                Name: '',
+                Description: '',
+                Address: '',
+                Hours: ''
             })
         }
     }
@@ -51,29 +48,33 @@ class AddBusiness extends Component {
                 onSubmit={this.handleSubmit}
                 style={{ display: 'flex', flexDirection: 'column', width: '350px' }}>
             <TextField 
-                id="name" 
+                id="Name" 
                 placeholder="Name" 
-                value={this.state.name} 
+                value={this.state.Name} 
                 onChange={this.handleTextChange} 
-                required />
+                required
+                />
             <TextField 
-                id="address" 
+                id="Address" 
                 placeholder="Address" 
-                value={this.state.address} 
+                value={this.state.Address} 
                 onChange={this.handleTextChange}
-                required />
+                required
+                />
             <TextField 
-                id="hours" 
+                id="Hours" 
                 placeholder="Hours (ex. 8AM - 9PM)" 
-                value={this.state.hours} 
+                value={this.state.Hours} 
                 onChange={this.handleTextChange} 
-                required />
+                required
+                />
             <TextField 
-                id="description" 
+                id="Description" 
                 placeholder="Description" 
-                value={this.state.description} 
+                value={this.state.Description} 
                 onChange={this.handleTextChange} 
-                required />
+                required
+                />
             <br />
                 <Button variant="contained" color="primary" type="submit">Add Listing</Button>
             </form>

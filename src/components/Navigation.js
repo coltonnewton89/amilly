@@ -5,6 +5,8 @@ import MenuIcon from '@material-ui/icons/Menu'
 import { Link } from 'react-router-dom'
 import SnackbarContent from '@material-ui/core/SnackbarContent';
 
+
+
 class Navigation extends Component  {
     // state = {
     //     login: false,
@@ -29,16 +31,16 @@ class Navigation extends Component  {
                     <li className="nav-list-item">
                         <Link onClick={this.guestClick} to="/listing">Listing</Link>
                     </li>
+
                     <li className="nav-list-item">
-                    <Link to="/Login">{this.props.user.username ? null : 'login'}
-                        </Link>
+                    <Link to="/Login">{this.props.user.username ? null : 'login'}</Link>
 
                     </li>
 
-                    {this.props.user.username ? (<button onClick={(props)=>{this.props.user.username = false}}>Log out</button>) : (null)}
+                    {/* {this.props.user.username ? (<button onClick={(props)=>{this.props.user.username = false}}>Log out</button>) : (null)} */}
 
 
-                    {this.props.user.username ? (<li className="nav-list-item">
+                    {this.props.user.loggedIn ? (<li className="nav-list-item">
                     <Link onClick={this.guestClick} to="/AddBusiness">Add Business</Link>
                     </li>):(null)}
                     
@@ -46,8 +48,8 @@ class Navigation extends Component  {
             </Toolbar>
         </AppBar>
         {/*  "username" in message is hard coded and needs to be pulled from a value in login.js*/}
-    {this.props.user.username ? <SnackbarContent  message="Logged out as: username"  /> : 
-    <SnackbarContent  message="Logged in as: username"  />}
+    {this.props.user.username ? <SnackbarContent  message={`logged out as: ${this.props.user.username}`}  /> : 
+    <SnackbarContent  message={`logged in as: ${this.props.user.username}`}  />}
         
     
         
